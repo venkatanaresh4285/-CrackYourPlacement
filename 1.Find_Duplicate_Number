@@ -1,0 +1,45 @@
+https://leetcode.com/problems/find-the-duplicate-number/submissions/1326343637/
+
+BRUTE FORCE:-
+  
+int findDuplicate(vector<int>& nums) {
+        int n;
+        for(int i=0;i<nums.size();i++){
+            for(int j=i+1;j<nums.size();j++){
+                if(nums[i]==nums[j]){
+                   n=nums[i];
+                }
+            }
+        }
+        return n;
+    }
+Approach 2:
+
+int findDuplicate(vector<int>& nums) {
+
+int n;
+    sort(nums.begin(),nums.end());
+    for(int i=1;i<nums.size();i++){
+        if(nums[i]==nums[i-1]){
+          n=nums[i];
+        }
+    }
+    return n;
+    }
+    
+#Approach 3:
+Using Map function I will create a map and insert values into it 
+int findDuplicate(vector<int>& nums) {
+        map<int,int> mpp;
+        int rc;
+    for(int i=0;i<nums.size();i++){
+         mpp[nums[i]]++; //1-1,3-1,4-2,2-2
+    }
+    for(int i=0;i<nums.size();i++){
+        if(mpp[nums[i]]>1){
+            rc=nums[i];
+        }
+    }
+
+      return rc;
+}
