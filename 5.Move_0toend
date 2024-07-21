@@ -1,0 +1,31 @@
+Brute Force:
+
+  void moveZeroes(vector<int>& nums) {
+        vector<int> cv;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]!=0){
+              cv.push_back(nums[i]);
+            }
+        }
+        int n=cv.size();
+        for(int i=0;i<n;i++){
+            nums[i]=cv[i];
+        }
+
+        for(int i=n;i<nums.size();i++){
+            nums[i]=0;
+        }
+    }
+
+
+Optimal Approach
+void moveZeroes(vector<int>& nums) {
+        int j=0;
+       
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]!=0){
+                swap(nums[i],nums[j]);
+                j++;
+            }
+        }
+    }
