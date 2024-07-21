@@ -1,0 +1,25 @@
+
+ Approach :
+
+Input:
+N = 8, M = 5
+A = {3, 4, 1, 9, 56, 7, 9, 12}
+Output: 6  
+
+The approach is firsts sort the entire array and initialize left as 0 i.e C=0 and rem =m-1 and loop starting from the m and till n the difference between m index-satrting index 
+it should be minimum
+
+
+ long long findMinDiff(vector<long long> a, long long n, long long m){
+        sort(a.begin(),a.end());
+        long long mini=INT_MAX;
+        int c=0;
+        int rem=m-1;
+        while(rem<n){
+            long long diff=a[rem]-a[c];
+            mini=min(mini,diff);
+            c++;
+            rem++;
+        }
+        return mini;
+    }   
